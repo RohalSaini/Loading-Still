@@ -1,0 +1,14 @@
+Commands and its usage:
+-----------------------
+1. git remote -v --> remote → remote repositories (like GitHub) , -v → verbose (show full URLs)
+2. git config --global --unset user.password  --> to clear password config
+3. git config --global --unset credential.helper --> to clear helper credials
+4. git remote set-url origin git@github.com:RohalSaini/Loading-Still.git  --> Change repo remote to SSH
+5. git config --global user.name "Rohal Saini" -> set username
+6. git config --global user.email "rohalsainia94@gmail.com" --> set email
+7. git config --global user.password "password or token" --> set token or password
+8. git config --global --list --> to know crendial list
+9. git config --global credential.helper store --> Save credentials automatically (recommended)
+10. 
+
+
