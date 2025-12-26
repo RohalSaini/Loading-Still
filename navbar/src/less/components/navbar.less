@@ -1,0 +1,192 @@
+.navbar {
+  background-color: @header-bg;
+  display: flex;
+
+  &>.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: @spacing-lg;
+
+    &>.logo {
+      color: white;
+      align-self: center;
+      font-size: @font-lg;
+      font-weight: @font-weight-bold;
+    }
+
+    /* Hamburger button */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      align-self: center;
+
+      span {
+        display: flex;
+        height: 3px;
+        background-color: @primary-color;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      &.active {
+
+        span:nth-child(1),
+        span:nth-child(3) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        span:nth-child(2) {
+          opacity: 0;
+        }
+
+        span:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+      }
+
+      &.active .container-menu {
+        right: 0; // slide in
+        visibility: visible;
+      }
+    }
+
+    &>.container-menu {
+      &.active {
+        left: 0;
+      }
+
+      display: flex; // flex container for menu items
+      flex-direction: column; // vertical menu
+      position: fixed; // fixed to screen
+      top: 60px;
+      right: -250px; // hide offscreen initially
+      width: 250px;
+      height: 100vh;
+      background-color: @header-bg; // side menu background
+      padding: @spacing-lg;
+      gap: @spacing-md; // spacing between menu items
+      transition: left 0.3s ease,
+      visibility 0.3s ease;
+
+      &>li>a,
+      &>.btn>a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: @spacing-sm @spacing-md;
+        border: 2px solid @primary-color;
+        border-radius: @radius-lg;
+        color: @primary-color;
+        font-weight: @font-weight-bold;
+        font-size: @font-md;
+        gap: 0.25rem;
+        transition: all 0.3s ease;
+      }
+
+      &>li>a:hover,
+      &>.btn>a:hover {
+        background-color: @primary-color;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+
+/* ============================
+   TABLET / MEDIUM (576px+)
+============================ */
+@media (min-width: 576px) {
+  .navbar {
+    background-color: @header-bg;
+
+    >.container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: @spacing-md;
+
+      >.hamburger {
+        display: none; // hide hamburger on larger screens
+      }
+
+      >.container-menu {
+        display: flex;
+        position: static;
+        top: 0;
+        right: 0; // reset from fixed
+        flex-direction: row; // horizontal menu
+        height: auto; // reset height
+        gap: @spacing-md; // spacing between menu items
+        visibility: visible; // ensure visible on larger screens
+        width: auto;
+        padding: 0;
+
+        >li>a,
+        >.btn>a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: @spacing-sm @spacing-sm;
+          border: 2px solid @primary-color;
+          border-radius: @radius-lg;
+          color: @primary-color;
+          font-weight: @font-weight-bold;
+          font-size: @font-sm;
+          gap: 0.1rem;
+          transition: all 0.3s ease;
+        }
+
+        >li>a:hover,
+        >.btn>a:hover {
+          background-color: @primary-color;
+          color: white;
+          cursor: pointer;
+        }
+
+        >.btn>a:hover {
+          background-color: @secondary-color;
+        }
+      }
+    }
+  }
+}
+
+
+
+// /* DESKTOP / LARGE (992px+) */
+@media (min-width: 992px) {
+  .navbar {
+    >.container {
+      margin: @spacing-xl;
+
+      >.hamburger {
+        display: none; // hide hamburger on larger screens
+      }
+
+      >.container-menu {
+        gap: @spacing-xl; // spacing between menu items
+
+        >li>a,
+        >.btn>a {
+          padding: @spacing-md @spacing-md;
+          border: 2px solid @primary-color;
+          border-radius: @radius-lg;
+          font-weight: @font-weight-bold;
+          font-size: @font-lg;
+          gap: 0.1rem;
+        }
+      }
+    }
+  }
+}
+
+// /* EXTRA LARGE (1200px+) */
+// @media (min-width: 1200px) {}

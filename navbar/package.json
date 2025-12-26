@@ -1,0 +1,21 @@
+{
+  "name": "navbar",
+  "version": "1.0.0",
+  "description": "navbar design moder",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx lessc -v && node -v",
+    "start": "less-watch-compiler src/less dist/css",
+    "less:watch": "less-watch-compiler src/less dist/css",
+    "less:build": " npx lessc src/less/index.less dist/css/index.cc --clean-css",
+    "build": " rm -rf ./dist && npx lessc src/less/index.less dist/css/index.css --clean-css"
+  },
+  "devDependencies": {
+    "less": "^4.5.1",
+    "less-plugin-clean-css": "^1.6.0",
+    "less-watch-compiler": "^1.17.5"
+  }
+}
